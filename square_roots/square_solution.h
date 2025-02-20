@@ -1,0 +1,1 @@
+int find_roots(double a, double b, double c, double result[2]);

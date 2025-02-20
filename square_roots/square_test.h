@@ -1,0 +1,1 @@
+void test_case(double a, double b, double c, int expected_count, double expected_roots[2]);
