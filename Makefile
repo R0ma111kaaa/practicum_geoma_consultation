@@ -20,5 +20,5 @@ square_test: square_test.o add.a
 	gcc -g -static -o square_test square_test.o adsquare_solutiond.a
 
 test: square_test
-	./square_test
+	./*_test
 
