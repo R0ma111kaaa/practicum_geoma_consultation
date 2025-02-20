@@ -16,7 +16,7 @@ square_solution.a: square_solution.o
 square_test.o: square_test.c
 	gcc -g -c square_test.c -o square_test.o
 
-square_test: square_test.o add.a
+square_test: square_test.o square_solution.a
 	gcc -g -static -o square_test square_test.o adsquare_solutiond.a
 
 test: square_test
