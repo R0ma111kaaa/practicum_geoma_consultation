@@ -1,0 +1,1 @@
+double *solve_quadratic(double a, double b, double c);
