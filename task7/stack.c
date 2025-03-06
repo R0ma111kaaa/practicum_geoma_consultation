@@ -24,4 +24,3 @@ int pop(Stack *stack) {
     return poppedValue;
   }
 }
-
