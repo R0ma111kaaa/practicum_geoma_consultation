@@ -8,13 +8,13 @@
 double parabol(double x) { return pow(x, 2); }
 
 void test_parabol_1() {
-  double res = integral(1, 2, parabol);
+  double res = integral(1, 2, 1000, parabol);
   double correct_answer = 2.33333;
   assert(fabs(res - correct_answer) <= correct_answer * 1e-5);
 }
 
 void test_parabol_2() {
-  double res = integral(17, 87, parabol);
+  double res = integral(17, 87, 1000, parabol);
   double correct_answer = 217863.33333;
   assert(fabs(res - correct_answer) <= correct_answer * 1e-5);
 }
