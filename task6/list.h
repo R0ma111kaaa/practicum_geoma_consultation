@@ -1,6 +1,3 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,14 +11,11 @@ typedef struct {
   int size;
 } LinkedList;
 
-Node *createNode(int data);
-void initList(LinkedList *list);
-void addToBeginning(LinkedList *list, int data);
-void addToEnd(LinkedList *list, int data);
-void addAtIndex(LinkedList *list, int data, int index);
-void deleteAtIndex(LinkedList *list, int index);
-Node *findAtIndex(LinkedList *list, int index);
-int getSize(LinkedList *list);
-void printList(LinkedList *list);
-
-#endif
+Node *create_node(int data);
+void init_list(LinkedList *list);
+void add_to_beginning(LinkedList *list, int data);
+void add_to_end(LinkedList *list, int data);
+void add_at_index(LinkedList *list, int data, int index);
+void delete_at_index(LinkedList *list, int index);
+Node *find_at_index(LinkedList *list, int index);
+int get_size(LinkedList *list);

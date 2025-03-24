@@ -2,51 +2,51 @@
 #include <assert.h>
 #include <stdio.h>
 
-void testInitList() {
+void test_init_list() {
   LinkedList list;
-  initList(&list);
-  assert(getSize(&list) == 0);
+  init_list(&list);
+  assert(get_size(&list) == 0);
   assert(list.head == NULL);
 }
 
-void testAddElements() {
+void test_add_elements() {
   LinkedList list;
-  initList(&list);
+  init_list(&list);
 
-  addToEnd(&list, 10);
-  assert(getSize(&list) == 1);
+  add_to_end(&list, 10);
+  assert(get_size(&list) == 1);
   assert(list.head->data == 10);
 
-  addToBeginning(&list, 5);
-  assert(getSize(&list) == 2);
+  add_to_beginning(&list, 5);
+  assert(get_size(&list) == 2);
   assert(list.head->data == 5);
 
-  addAtIndex(&list, 7, 1);
-  assert(getSize(&list) == 3);
-  assert(findAtIndex(&list, 1)->data == 7);
+  add_at_index(&list, 7, 1);
+  assert(get_size(&list) == 3);
+  assert(find_at_index(&list, 1)->data == 7);
 
-  addToEnd(&list, 20);
-  assert(getSize(&list) == 4);
-  assert(findAtIndex(&list, 3)->data == 20);
+  add_to_end(&list, 20);
+  assert(get_size(&list) == 4);
+  assert(find_at_index(&list, 3)->data == 20);
 }
 
-void testFindAndDelete() {
+void test_find_and_delete() {
   LinkedList list;
-  initList(&list);
-  addToEnd(&list, 10);
-  addToEnd(&list, 20);
-  addToEnd(&list, 30);
+  init_list(&list);
+  add_to_end(&list, 10);
+  add_to_end(&list, 20);
+  add_to_end(&list, 30);
 
-  assert(findAtIndex(&list, 1)->data == 20);
+  assert(find_at_index(&list, 1)->data == 20);
 
-  deleteAtIndex(&list, 1);
-  assert(getSize(&list) == 2);
-  assert(findAtIndex(&list, 1)->data == 30);
+  delete_at_index(&list, 1);
+  assert(get_size(&list) == 2);
+  assert(find_at_index(&list, 1)->data == 30);
 }
 
 int main() {
-  testInitList();
-  testAddElements();
-  testFindAndDelete();
+  test_init_list();
+  test_add_elements();
+  test_find_and_delete();
   return 0;
 }

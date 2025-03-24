@@ -1,64 +1,64 @@
 #include "list.h"
 
-Node *createNode(int data) {
-  Node *newNode = (Node *)malloc(sizeof(Node));
-  if (!newNode) {
+Node *create_node(int data) {
+  Node *new_node = (Node *)malloc(sizeof(Node));
+  if (!new_node) {
     printf("Ошибка выделения памяти\n");
     exit(1);
   }
-  newNode->data = data;
-  newNode->next = NULL;
-  return newNode;
+  new_node->data = data;
+  new_node->next = NULL;
+  return new_node;
 }
 
-void initList(LinkedList *list) {
+void init_list(LinkedList *list) {
   list->head = NULL;
   list->size = 0;
 }
 
-void addToBeginning(LinkedList *list, int data) {
-  Node *newNode = createNode(data);
-  newNode->next = list->head;
-  list->head = newNode;
+void add_to_beginning(LinkedList *list, int data) {
+  Node *new_node = create_node(data);
+  new_node->next = list->head;
+  list->head = new_node;
   list->size++;
 }
 
-void addToEnd(LinkedList *list, int data) {
-  Node *newNode = createNode(data);
+void add_to_end(LinkedList *list, int data) {
+  Node *new_node = create_node(data);
   if (list->head == NULL) {
-    list->head = newNode;
+    list->head = new_node;
   } else {
     Node *current = list->head;
     while (current->next != NULL) {
       current = current->next;
     }
-    current->next = newNode;
+    current->next = new_node;
   }
   list->size++;
 }
 
-void addAtIndex(LinkedList *list, int data, int index) {
+void add_at_index(LinkedList *list, int data, int index) {
   if (index < 0 || index > list->size) {
     printf("Некорректный индекс\n");
     return;
   }
   if (index == 0) {
-    addToBeginning(list, data);
+    add_to_beginning(list, data);
   } else if (index == list->size) {
-    addToEnd(list, data);
+    add_to_end(list, data);
   } else {
-    Node *newNode = createNode(data);
+    Node *new_node = create_node(data);
     Node *current = list->head;
     for (int i = 0; i < index - 1; i++) {
       current = current->next;
     }
-    newNode->next = current->next;
-    current->next = newNode;
+    new_node->next = current->next;
+    current->next = new_node;
     list->size++;
   }
 }
 
-void deleteAtIndex(LinkedList *list, int index) {
+void delete_at_index(LinkedList *list, int index) {
   if (index < 0 || index >= list->size) {
     printf("Некорректный индекс\n");
     return;
@@ -79,7 +79,7 @@ void deleteAtIndex(LinkedList *list, int index) {
   list->size--;
 }
 
-Node *findAtIndex(LinkedList *list, int index) {
+Node *find_at_index(LinkedList *list, int index) {
   if (index < 0 || index >= list->size) {
     printf("Некорректный индекс\n");
     return NULL;
@@ -91,18 +91,4 @@ Node *findAtIndex(LinkedList *list, int index) {
   return current;
 }
 
-int getSize(LinkedList *list) { return list->size; }
-
-void printList(LinkedList *list) {
-  Node *current = list->head;
-  printf("[");
-  while (current != NULL) {
-    if (current->next != NULL) {
-      printf("%d, ", current->data);
-    } else {
-      printf("%d", current->data);
-    }
-    current = current->next;
-  }
-  printf("]\n");
-}
+int get_size(LinkedList *list) { return list->size; }
