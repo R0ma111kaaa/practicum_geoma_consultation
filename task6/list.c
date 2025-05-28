@@ -3,7 +3,6 @@
 Node *create_node(int data) {
   Node *new_node = (Node *)malloc(sizeof(Node));
   if (!new_node) {
-    printf("Ошибка выделения памяти\n");
     exit(1);
   }
   new_node->data = data;
@@ -39,7 +38,6 @@ void add_to_end(LinkedList *list, int data) {
 
 void add_at_index(LinkedList *list, int data, int index) {
   if (index < 0 || index > list->size) {
-    printf("Некорректный индекс\n");
     return;
   }
   if (index == 0) {
@@ -60,7 +58,6 @@ void add_at_index(LinkedList *list, int data, int index) {
 
 void delete_at_index(LinkedList *list, int index) {
   if (index < 0 || index >= list->size) {
-    printf("Некорректный индекс\n");
     return;
   }
   Node *temp;
@@ -81,7 +78,6 @@ void delete_at_index(LinkedList *list, int index) {
 
 Node *find_at_index(LinkedList *list, int index) {
   if (index < 0 || index >= list->size) {
-    printf("Некорректный индекс\n");
     return NULL;
   }
   Node *current = list->head;
