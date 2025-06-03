@@ -1,0 +1,1 @@
+// garbage collector (сборщик мусора)
