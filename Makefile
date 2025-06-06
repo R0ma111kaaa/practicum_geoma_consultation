@@ -7,8 +7,7 @@ check_fmt:
 fmt:
 	clang-format -style=LLVM -i `find -regex ".+\.[ch]"`
 
-# ищем все дирректории с именем taskX
-TASK_DIRS := $(shell find . -maxdepth 1 -type d -name 'task[0-9]*')
+TASK_DIRS := $(shell find . -maxdepth 1 -type d \( -name 'task[0-9]*' -o -name 'laboratornaya_*' \))
 
 .PHONY: test $(TASK_DIRS)
 

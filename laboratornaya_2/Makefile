@@ -9,7 +9,8 @@ fmt:
 
 .PHONY: test
 
-SRC := linear_allocator.c pool_allocator.c array_list.c hashtable.c
+SRC := $(wildcard linear_allocator.c pool_allocator.c array_list.c hashtable.c)
+
 TEST_DIR := ./tests
 TEST_FILES := $(wildcard $(TEST_DIR)/*_test.c)
 
@@ -19,5 +20,3 @@ test:
 		gcc -I./src -o $$outfile $$file $(SRC) && $$outfile || exit 1; \
 		rm -f $$outfile; \
 	done
-	@echo "все тесты завершены успешно"
-	
