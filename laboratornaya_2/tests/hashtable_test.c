@@ -10,13 +10,13 @@ int main() {
   hashtable_init(&table, capacity, allocator);
 
   int value1 = 42;
-  hashtable_insert(&table, "key1", &value1);
+  hashtable_insert(&table, "key1", &value1, sizeof(HashNode));
   int *result1 = (int *)hashtable_get(&table, "key1");
   assert(result1 != NULL);
   assert(*result1 == 42);
 
   int value2 = 100;
-  hashtable_insert(&table, "key1", &value2);
+  hashtable_insert(&table, "key1", &value2, sizeof(HashNode));
   int *result2 = (int *)hashtable_get(&table, "key1");
   assert(result2 != NULL);
   assert(*result2 == 100);
@@ -26,7 +26,7 @@ int main() {
   assert(result3 == NULL);
 
   int value3 = 15;
-  hashtable_insert(&table, "", &value3);
+  hashtable_insert(&table, "", &value3, sizeof(HashNode));
   int *result4 = (int *)hashtable_get(&table, "");
   assert(result4 != NULL);
   assert(*result4 == 15);
