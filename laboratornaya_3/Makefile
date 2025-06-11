@@ -7,6 +7,7 @@ CFLAGS := -Wall -Wextra -I./src -I../laboratornaya_2
 test:
 	@for file in $(TEST_FILES); do \
 		outfile=$$(mktemp); \
+		echo "==> Testing $$file"; \
 		gcc $(CFLAGS) -o $$outfile $$file $(SRC) && $$outfile || exit 1; \
 		rm -f $$outfile; \
 	done
@@ -15,6 +16,7 @@ test:
 valgrind:
 	@for file in $(TEST_FILES); do \
 		outfile=$$(mktemp); \
+		echo "==> Valgrind $$file"; \
 		gcc -g $(CFLAGS) -o $$outfile $$file $(SRC) && \
 		valgrind --leak-check=full --error-exitcode=1 $$outfile || exit 1; \
 		rm -f $$outfile; \
