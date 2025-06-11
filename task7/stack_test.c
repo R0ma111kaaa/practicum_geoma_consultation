@@ -8,6 +8,7 @@ void test_initStack() {
   Stack stack;
   init_stack(&stack, 50);
   assert(stack.top == -1);
+  free_stack(&stack);
 }
 
 void test_push() {
@@ -25,6 +26,7 @@ void test_push() {
   push(&stack, 30);
   assert(stack.top == 2);
   assert(stack.arr[stack.top] == 30);
+  free_stack(&stack);
 }
 
 void test_pop() {
@@ -44,6 +46,7 @@ void test_pop() {
 
   assert(pop(&stack, &element) && element == 10);
   assert(stack.top == -1);
+  free_stack(&stack);
 }
 
 void test_push_after_pop() {
@@ -67,6 +70,7 @@ void test_push_after_pop() {
   push(&stack, 60);
   assert(stack.top == 3);
   assert(stack.arr[stack.top] == 60);
+  free_stack(&stack);
 }
 
 int main() {

@@ -9,9 +9,9 @@ void init_stack(Stack *stack, int size) {
   stack->top = -1;
 }
 
-int is_empty(Stack *stack) { return stack->top == -1; }
+bool is_empty(Stack *stack) { return stack->top == -1; }
 
-int is_full(Stack *stack) { return stack->top == stack->size - 1; }
+bool is_full(Stack *stack) { return stack->top == stack->size - 1; }
 
 bool push(Stack *stack, int value) {
   if (is_full(stack)) {
@@ -28,4 +28,13 @@ bool pop(Stack *stack, int *outValue) {
     *outValue = stack->arr[stack->top--];
     return true;
   }
+}
+
+void free_stack(Stack *stack) {
+  if (stack->arr != NULL) {
+    free(stack->arr);
+    stack->arr = NULL;
+  }
+  stack->size = 0;
+  stack->top = -1;
 }
