@@ -1,4 +1,4 @@
-SRC := gc.c destructors.c cycles.c ../laboratornaya_2/pool_allocator.c
+SRC := $(wildcard gc.c destructors.c cycles.c) ../laboratornaya_2/pool_allocator.c
 TEST_DIR := ./tests
 TEST_FILES := $(wildcard $(TEST_DIR)/*_test.c)
 
